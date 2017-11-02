@@ -7,7 +7,7 @@
   "author": "Brady Liles <bradyliles@outlook.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BradyLiles/ionic-orm.git"
+    "url": "git+https://github.com/jeansantana/ionic-orm.git"
   },
   "bugs": {
     "url": "https://github.com/BradyLiles/ionic-orm/issues"
@@ -35,7 +35,7 @@
     "lodash": "^4.16.4",
     "moment": "2.15.2"
   },
-  "homepage": "https://github.com/BradyLiles/ionic-orm#readme",
+  "homepage": "https://github.com/jeansantana/ionic-orm#readme",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
