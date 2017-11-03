@@ -376,7 +376,11 @@ export class Repository<Entity extends ObjectLiteral> {
         if (conditions) {
             Object.keys(conditions).forEach(key => {
                 const name = key.indexOf(".") === -1 ? alias + "." + key : key;
-                qb.andWhere(name + "=:" + key);
+                if (conditions[key]) {
+                    qb.andWhere(name + "=:" + key);
+                } else {
+                    qb.andWhere(name + " IS NULL");
+                }
             });
             qb.addParameters(conditions);
         }
