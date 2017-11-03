@@ -96,11 +96,14 @@ export class IonicSQLiteDriver implements Driver {
      */
     disconnect(): Promise<void> {
         return new Promise<void>((ok, fail) => {
-            const handler = (err: any) => err ? fail(err) : ok();
-
             if (!this.databaseConnection)
                 return fail(new ConnectionIsNotSetError("ionic-sqlite"));
-            this.databaseConnection.connection.close(handler);
+            return this.databaseConnection.connection
+                .then((sqlLiteObject: SQLiteObject) => {
+                    return sqlLiteObject.close();
+                }).then((close) => {
+                    ok();
+                });
         });
     }
 
